@@ -225,6 +225,7 @@ class DefaultConnection implements Connection
         curl_setopt($curlHandle, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($curlHandle, CURLOPT_CUSTOMREQUEST, $httpMethod);
         curl_setopt($curlHandle, CURLOPT_URL, $requestUri);
+        curl_setopt($curlHandle, CURLOPT_TIMEOUT, 30);
         if (in_array($httpMethod, array('PUT', 'POST')) && $body) {
             curl_setopt($curlHandle, CURLOPT_POSTFIELDS, $body);
         }
